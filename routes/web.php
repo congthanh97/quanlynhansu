@@ -42,4 +42,6 @@ Route::prefix('admin')->group(function() {
 	// get level id
 	Route::get('level/{id}','LevelController@getLevelId')->middleware('Checklogin');
 
+	//
+
 });
