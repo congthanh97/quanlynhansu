@@ -16,6 +16,11 @@ class Users extends Model
     static public function Checklogin($username, $password) {
         return self::where('username', $username)->where('password', $password)->first();
     }
+    
+    public static function getUsers() {
+    	return self::select('*')->get(); 	
+    }
+    
 
     static public function getAllUsers (){
     	return self::get();
@@ -30,5 +35,15 @@ class Users extends Model
 
     public static function getUserByLevel($level_id) {
         return self::where('level_id', $level_id)->paginate(12);
+    }
+
+    public static function addUser($username,$password,$mobile,$workplace,$level_id) {
+        self::insert([
+            'username'=>$username,
+            'password'=>$password,
+            'mobile'=>$mobile,
+            'workplace'=>$workplace,
+            'level_id'=>$level_id
+        ]);
     }
 }

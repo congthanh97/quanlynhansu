@@ -18,10 +18,15 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function() {
 
-	Route::get('login', 'UsersController@getLogin');
-	Route::post('login', 'UsersController@postLogin');
+	// Route::get('login', 'UsersController@getLogin');
+	// Route::post('login', 'UsersController@postLogin');
 
-	Route::get('logout', 'UsersController@logOut');
+	// Route::get('logout', 'UsersController@logOut');
+
+	Route::get('login', 'AdminController@getLogin');
+	Route::post('login', 'AdminController@postLogin');
+
+	Route::get('logout', 'AdminController@logOut');
 
 	Route::get('/', 'AdminController@admin')->middleware('Checklogin');
 
@@ -40,8 +45,14 @@ Route::prefix('admin')->group(function() {
 
 	
 	// get level id
-	Route::get('level/{id}','LevelController@getLevelId')->middleware('Checklogin');
+	Route::get('level/{id}','LevelController@;')->middleware('Checklogin');
 
-	//
+	//admin/level/1
+	//Route::get('level/1', function () {
+		
+	//});
+
+
+	Route::get('users', 'UsersController@getUsers')->middleware('Checklogin');
 
 });

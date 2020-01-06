@@ -62,9 +62,13 @@ class LevelController extends Controller
 			return view('admin/level/addlevel');
 		}
 	}
+	
     public function getlevel() {
     	$level = new level();
     	$levels = $level::getLevels();
     	return view('admin.level.index', compact('levels'));
-    }
+	}
+	
+
+	
 }

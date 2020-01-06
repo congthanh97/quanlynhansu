@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\level;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+      //
     }
 
     /**
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+         view()->composer('admin.header', function ($view) {
+            $level =  new Level();
+            $levels =  $level::getLevels();
+            // $levels = Level::all();
+            $view->with('levels',$levels);
+        });
     }
 }

@@ -8,10 +8,10 @@ class Level extends Model
 {
      //
     protected $table = "levels" ;
-    public $timestamps = true;
+    // public $timestamps = true;
     
     //get all levels
-    public function projects(){
+    public function Users(){
         return $this->hasMany('App/Models/Users');
     }
 

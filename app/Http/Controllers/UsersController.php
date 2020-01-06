@@ -9,7 +9,7 @@ class UsersController extends Controller
 {
     //
      public function logOut() {
-		session()->forget('UserAdmin');
+		session()->forget('User');
 		return redirect('admin/login');
     }
 
@@ -31,7 +31,7 @@ class UsersController extends Controller
                     'Role'=>$roles->level_id,
                     
 				]);
-				return redirect('admin');
+				return redirect('users');
 			}
 			else 
 				
@@ -43,10 +43,40 @@ class UsersController extends Controller
 
     
     public function getLogin(){
-		if(session('UserAdmin')!=null) {
+		if(session('User')!=null) {
 			return redirect('admin');
 		}
     	return view('admin/user/login');
-    }
+	}
+	
+
+	//User
+	 public function addUser(Request $request){
+		$user = new Users();
+		if($request->name){
+			 //postcate
+			// $name = $request->input('name');
+			// //$check = $user::getLevelByName($name);
+			// if($check==null) {
+			// 	$level::addLevel($name);
+			// 	return json_encode('1');
+			// }
+			// else {
+			// 	return json_encode('0');
+			// }
+		}else{
+			//getcate
+			return view('admin/user/addUser');
+		}
+	}
+
+	//
+    public function getUsers() {
+    	$user = new Users();
+    	$users = $user::getUsers();
+    	return view('admin.user.index', compact('users'));
+	}
+	
+
 
 }
