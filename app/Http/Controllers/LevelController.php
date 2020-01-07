@@ -34,7 +34,7 @@ class LevelController extends Controller
 	    		$cates = $level::getLevels();
 	    		return json_encode('1');
 			}
-			
+
 		}
 		else {
 			$level = new level();

@@ -69,8 +69,8 @@
     </div>
   </div>
 </div>
-{{-- <script>
-    
+<script>
+     
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -82,8 +82,8 @@
     //add category
     $('.icon-add').click(function () {
         event.preventDefault();
-        url = 'addLevel';
-        console.log(url);
+        url = 'admin/addLevel';
+        // console.log(url);
         $.ajax({
             url: url,
             type: "GET",
@@ -99,8 +99,8 @@
     $('.icon-edit').click(function (event) {
         event.preventDefault();
         id = $(this).data('id');
-        // console.log(id);
-        url = 'editLevel/';
+         console.log(id);
+        url = 'admin/editLevel/';
         $.ajax({
             url: url + id,
             type: 'GET',
@@ -111,7 +111,7 @@
         })
     });
 
-</script> --}}
+</script>
 @endsection
 
     

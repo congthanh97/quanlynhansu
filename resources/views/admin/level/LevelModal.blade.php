@@ -30,7 +30,7 @@
     $('#edit').click(function(event) {
         event.preventDefault();
         id = $(this).data('id');
-        url = 'editLevel/';
+        url = 'admin/editLevel/';
         var name = $('#name').val();
         console.log(name);
         if($.trim(name)=='') {
@@ -71,7 +71,7 @@
                 $('.icon-edit').click(function(event) {
                 event.preventDefault();
                 id = $(this).data('id');
-                url = 'editLevel/';
+                url = 'admin/editLevel/';
                 $.ajax({
                     url: url + id,
                     type: 'GET',
