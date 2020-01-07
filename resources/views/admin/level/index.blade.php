@@ -69,7 +69,7 @@
     </div>
   </div>
 </div>
-<script>
+{{-- <script>
      
     $.ajaxSetup({
         headers: {
@@ -111,7 +111,7 @@
         })
     });
 
-</script>
+</script> --}}
 @endsection
 
     

@@ -14,7 +14,7 @@ $(document).ready(function () {
         event.preventDefault();
         id = $(this).data('id');
         // console.log(id);
-        url = 'editLevel/';
+        url = 'admin/editLevel/';
         $.ajax({
             url: url + id,
             type: 'GET',
@@ -28,7 +28,7 @@ $(document).ready(function () {
     //add category
     $('.icon-add').click(function () {
         event.preventDefault();
-        url = 'addLevel';
+        url = 'admin/addLevel';
         $.ajax({
             url: url,
             type: "GET",
@@ -44,7 +44,7 @@ $(document).ready(function () {
         event.preventDefault();
         id = $(this).data('id');
         console.log(id);
-        url = 'deletelevel/';
+        url = 'admin/deletelevel/';
         $.ajax({
             url: url + id,
             type: 'GET',
@@ -62,7 +62,7 @@ $(document).ready(function () {
                     showConfirmButton: false,
                     timer: 2500
                 });
-                window.location.replace('levels');
+                window.location.replace('admin/levels');
                 setTimeout(function () {
                     window.location.replace('levels');
                 }, 3000);
