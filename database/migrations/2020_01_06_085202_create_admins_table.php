@@ -24,6 +24,7 @@ class CreateAdminsTable extends Migration
             $table->integer('level_id')->unsigned()->index();
             // //  $table->foreign('level_id')->references('id')->on('levels');
             $table->rememberToken();
+            $table->timestamps();
         });
     }
 

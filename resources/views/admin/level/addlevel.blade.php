@@ -10,7 +10,16 @@
           <div class="form-group">
               <label>Tên Level</label>
               <input class="form-control" name="name" id="name" required="" placeholder="Please Enter Category Name" />
-          </div>
+              <br>
+              <label for="rote">Role</label>
+              <select name="rote" id="" class="form-control">
+                <option value="1">Câp 1</option>
+                <option value="2">Câp 2</option>
+                <option value="3">Câp 3</option>
+                <option value="4">Câp 4</option>
+                <option value="5">Câp 5</option>
+              </select>
+            </div>
       <form>
 </div>s
 <div class="modal-footer">
@@ -30,7 +39,8 @@
       event.preventDefault();
       url = 'admin/addLevel';
       var name = $('#name').val();
-      console.log(name);
+      var rote = $('#rote').val();
+      // console.log(name);
       if($.trim(name)=='') {
         Swal.fire({
             type: 'error',
@@ -61,9 +71,9 @@
                     showConfirmButton: false,
                     timer: 2500
                 });
-                window.location.replace('levels');
+                window.location.replace('admin/levels');
                 setTimeout(function () {
-                    window.location.replace('levels'); 
+                    window.location.replace('admin/levels'); 
                     }, 3000);
                 }
 

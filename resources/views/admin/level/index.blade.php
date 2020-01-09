@@ -17,6 +17,7 @@
                         <tr align="center">
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Cấp</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -28,14 +29,10 @@
                         <tr class="odd gradeX" align="center">
                             <td>{{$STT}}</td>
                           <td>{{$level->name}}</td>
-                            {{-- <td>
-                               @if($level->status==1)
-                                <span class="label label-success">{{$level->levelName}}</span>
-                                @elseif($level->status==0)
-                                <span class="label label-danger">{{'None'}}</span>
-                                @endif
-                            </td>
                             <td>
+                              {{$level->role}}
+                            </td>
+                           {{-- <td>
                                  @if($level->status==1)
                                 <span class="label label-success">{{'Hoạt động'}}</span>
                                 @elseif($level->status==0)
@@ -54,6 +51,15 @@
                         @endforeach
                     
                     </tbody>
+                    <tfoot>
+                         <tr align="center">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Cấp</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div> 
         </div>
