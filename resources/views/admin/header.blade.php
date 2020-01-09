@@ -92,10 +92,10 @@
                     <a href="#"><i class="fa fa-users fa-fw"></i> Quản lý Người dùng<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Danh sách ngưười dùng</a>
+                            <a href="{{ route('users.index') }}">Danh sách người dùng</a>
                         </li>
                         <li>
-                            <a href="#">Thêm mới người dùng</a>
+                            <a href="{{ route('users.create') }}">Thêm mới người dùng</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

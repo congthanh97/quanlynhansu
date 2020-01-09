@@ -7,21 +7,44 @@
             <div class="col-lg-12">
                 <h1 class="page-header">users
                     <small>List</small>
-                    <a href data-id=""class="icon-add" data-toggle="modal" data-target="#adduser"  ><span class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> Adduser</span></a>
+                    <!-- <a href data-id=""class="icon-add" data-toggle="modal" data-target="#adduser"  ><span class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> Adduser</span></a> -->
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-12">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>	
+                            <strong>{{ $message }}</strong>
+                    </div>
+                @endif
                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                         <tr align="center">
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Level</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php  $i = 0; ?>
+                    @foreach($users as $user)
+                        <?php  $i++; ?>
+                        <tr align="center">
+                            <td>{{ $i }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->mobile }}</td>
+                            <td>{{ $user['level']->name }}</td>
+                            <td>
+                                <a href="{{ route('users.edit', $user->id) }}" style="font-size: 21px;"><i class="fa fa-edit"></i></a>
+                                <a href="{{ route('users.delete', $user->id) }}" style="font-size: 21px; color: red;"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div> 
