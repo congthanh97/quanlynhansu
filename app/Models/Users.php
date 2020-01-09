@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Level;
 
 class Users extends Model
 {
@@ -12,6 +13,10 @@ class Users extends Model
     // public function roles(){
     //     return $this->belongsToMany(Roles::class);
     // }
+
+    protected $fillable = [
+        'username', 'email', 'password', 'fullname', 'mobile', 'workplace', 'level_id'
+    ];
 
     static public function Checklogin($username, $password) {
         return self::where('username', $username)->where('password', $password)->first();
@@ -45,5 +50,10 @@ class Users extends Model
             'workplace'=>$workplace,
             'level_id'=>$level_id
         ]);
+    }
+
+    public function level()
+    {
+        return $this->hasOne('App\Models\Level', 'id', 'level_id');
     }
 }
