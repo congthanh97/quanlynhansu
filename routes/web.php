@@ -53,6 +53,14 @@ Route::prefix('admin')->group(function() {
 	//});
 
 
-	Route::get('users', 'UsersController@getUsers')->middleware('Checklogin');
+	
+	Route::middleware(['Checklogin'])->group(function () {
+		Route::get('users', 'UsersController@getUsers')->name('users.index');
+		Route::get('users-create', 'UsersController@userCreate')->name('users.create');
+		Route::post('users-create-save', 'UsersController@userCreateSave')->name('users.create.save');
+		Route::get('users-edit/{id}', 'UsersController@userEdit')->name('users.edit');
+		Route::post('users-edit-save/{id}', 'UsersController@userEditSave')->name('users.edit.save');
+		Route::get('users-delete/{id}', 'UsersController@userDelete')->name('users.delete');
+	});
 
 });
